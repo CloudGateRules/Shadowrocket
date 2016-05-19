@@ -2,6 +2,7 @@
 >UPlus For Shadowrocket 由 Eval 维护
 >>更新记录:  
 ```
+Version1.3: 1.日常维护更新广告拦截规则2.更新时间:2016-5-19 08:16
 Version1.2: 1.修正Facebook图片载入问题2.修正百度快照的"广告"问题
 Version1.2: 3.修正乐视视频的"广告"问题4.取消对"爱奇艺视频"的拦截
 Version1.2: 5.新增Twitter/FaceBook拦截6.更新时间:2016-5-15 04:31
