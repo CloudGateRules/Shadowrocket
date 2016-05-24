@@ -2,6 +2,8 @@
 >UPlus For Shadowrocket 由 Eval 维护
 >>更新记录:  
 ```
+Version1.6: 1.添加部分Youtube 广告拦截2.修正"AppStore"的加载问题
+Version1.6: 3.更新时间:2016-5-24 15:12
 Version1.5: 1.取消Twitter/FaceBook拦截2.添加部分Youtube 广告拦截
 Version1.5: 3.更新时间:2016-5-23 22:18
 Version1.4: 1.修正优酷视频广告地址问题2.修正新浪微博广告拦截问题
