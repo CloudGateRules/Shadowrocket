@@ -2,6 +2,10 @@
 >UPlus For Shadowrocket 由 Eval 维护
 >>更新记录:  
 ```
+Version1.7: 1.添加"在路上"广告拦截规则2.添加"网易云音乐"广告拦截
+Version1.7: 3.添加"BiliBili"广告的拦截4.修正部分Youtube 错误问题
+Version1.7: 5.添加部分Youtube 广告拦截6.日常维护更新广告拦截规则
+Version1.7: 7.更新时间:2016-5-28 01:04
 Version1.6: 1.添加部分Youtube 广告拦截2.修正"AppStore"的加载问题
 Version1.6: 3.更新时间:2016-5-24 15:12
 Version1.5: 1.取消Twitter/FaceBook拦截2.添加部分Youtube 广告拦截
