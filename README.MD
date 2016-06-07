@@ -2,11 +2,13 @@
 >UPlus Of Shadowrocket 由 Eval 维护
 >>更新记录:  
 ```
-Version2.2: 1.修正"LastPass"的加载问题2.修正"Medium'应用加载问题
+Version2.3: 1.修正"Spotify图片加载问题2.修正"SpeedTest" 广告拦截
+Version2.3: 3.更新时间:2016-6-08 05:08
+Version2.2: 1.修正"LastPass"的加载问题2.修正"Medium"应用加载问题
 Version2.2: 3.修正"Transakt"的加载问题4.更新时间:2016-6-05 01:00
 Version2.1: 1.修正Twitter 头像载入问题2.添加"爱奇艺视频"广告拦截
 Version2.1: 3.添加部分Youtube 广告拦截4.更新时间:2016-6-01 22:24
-Version2.0: 1.添加"1500+" 余条代理规则2.新增"GFWList2PAC" 的规则
+Version2.0: 1.添加"1500+" 余条代理规则2.添加"GFWList2PAC" 的规则
 Version2.0: 1.更新时间:2016-5-30 14:18
 Version1.9: 1.修正 "Spark"应用加载问题2.更新时间:2016-5-30 12:26
 Version1.8: 1.日常维护更新广告拦截规则2.更新时间:2016-5-28 13:21
