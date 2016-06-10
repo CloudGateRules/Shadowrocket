@@ -2,6 +2,8 @@
 >UPlus Of Shadowrocket 由 Eval 维护
 >>更新记录:  
 ```
+Version2.4: 1.添加"Adpro" 所有广告域名2.添加"GameLoftSSP" 的拦截
+Version2.4: 3.以后的配置文件均自动生成4.更新时间:2016-6-10 13:54
 Version2.3: 1.修正"Spotify图片加载问题2.修正"SpeedTest" 广告拦截
 Version2.3: 3.更新时间:2016-6-08 05:08
 Version2.2: 1.修正"LastPass"的加载问题2.修正"Medium"应用加载问题
