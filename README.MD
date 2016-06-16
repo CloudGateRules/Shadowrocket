@@ -2,9 +2,12 @@
 >UPlus Of Shadowrocket 由 Eval 维护
 >>更新记录:  
 ```
+Version2.5: 1.添加"酷我音乐"的广告拦截2.添加"酷狗音乐"的广告拦截
+Version2.5: 3.弱化"QQ空间"出现广告概率4.更新时间:2016-6-17 03:19
+Version2.4: 1.添加Surge Auto Group功能2.更新时间:2016-6-11 04:42
 Version2.4: 1.添加"Adpro" 所有广告域名2.添加"GameLoftSSP" 的拦截
 Version2.4: 3.以后的配置文件均自动生成4.更新时间:2016-6-10 13:54
-Version2.3: 1.修正"Spotify图片加载问题2.修正"SpeedTest" 广告拦截
+Version2.3: 1.修正 Spotify图片加载问题2.修正"SpeedTest" 广告拦截
 Version2.3: 3.更新时间:2016-6-08 05:08
 Version2.2: 1.修正"LastPass"的加载问题2.修正"Medium"应用加载问题
 Version2.2: 3.修正"Transakt"的加载问题4.更新时间:2016-6-05 01:00
