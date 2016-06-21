@@ -23,7 +23,7 @@ $File = "Shadowrocket.Conf";//下载文件名称
 header('Content-type: application/octet-stream; charset=utf8');//下载动作
 header("Accept-Ranges: bytes");
 header('Content-Disposition: attachment; filename='.$File);//名称
-//--------------输出------------//
+//--------------配置------------//
 echo "[General]\r\n";
 echo "# warning, notify, info, verbose\r\n";
 echo "loglevel = notify\r\n";
@@ -35,7 +35,7 @@ echo "#  \r\n";
 echo "# Shadowrocket Config File [$NAME]\r\n";
 echo "# Last Modified: " . date("Y/m/d") . "\r\n";
 echo "#  \r\n";
-//--------------抓取------------//
+//--------------输出------------//
 //Default
 echo "[Rule]";
 echo"\r\n# Default\r\n";
