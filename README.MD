@@ -2,7 +2,10 @@
 >UPlus Of Shadowrocket 由 Eval 维护
 >>更新记录:  
 ```
-Version2.7: 1.规则暂时调整FINAL  Proxy2.修正force-remote-dns功能
+Version2.8: 1.添加搜狐新闻部分广告拦截2添加"ZAKER"的所有广告拦截
+Version2.8: 3.日常维护更新广告拦截规则4.添加铁通网址纠错跳转拦截
+Version2.8: 5.更新时间:2016-6-27 19:45
+Version2.7: 1.规则暂时调整FINAL Proxy2.修正force-remote-dns功能
 Version2.7: 3.修正微信公众号图片的载入3.日常维护更新广告拦截规则
 Version2.7: 4.更新时间:2016-6-22 18:52
 Version2.6: 1.添加"网易新闻"的广告拦截2.降低"QQ空间"出现广告概率
