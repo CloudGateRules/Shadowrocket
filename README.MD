@@ -1,7 +1,5 @@
 ###Shadowrocket 是一款 iOS 网络调试应用
-[![Downloads][11]][12]
 [![Join the chat at https://gitter.im/BurpSuite/UPlus-Shadowrocket](https://badges.gitter.im/BurpSuite/UPlus-Shadowrocket.svg)](https://gitter.im/BurpSuite/UPlus-Shadowrocket?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[12]: https://github.com/BurpSuite/UPlus-Shadowrocket/releases
 >UPlus Of Shadowrocket 由 Eval 维护
 >>更新记录:  
 ```
