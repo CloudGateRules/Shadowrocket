@@ -3,6 +3,9 @@
 >UPlus Of Shadowrocket 由 Eval 维护
 >>更新记录:  
 ```
+Version3.3: 1.添加"百度云"应用广告拦截2.IPCIDR添加"no-resolve"参数
+Version3.3: 3.重新/排列/整理/美化/规则4.GFWList已与Proxy规则合并
+Version3.3: 5.更新时间:2016-7-24 09:46
 Version3.2: 1.添加"WIFI万能钥匙"广告拦截2.修正今日头条拦截无效问题
 Version3.2: 3.修正淘宝加载速度较慢问题4.修正Amazon中国加载速度问题
 Version3.2: 5.日常维护更新广告拦截规则6.更新时间:2016-7-21 19:20:50
