@@ -3,6 +3,9 @@
 >UPlus Of Shadowrocket 由 Eval 维护
 >>更新记录:  
 ```
+Version3.4: 1.修正"腾讯视频"应用广告拦截2.暂时取消Path的拦截规则
+Version3.4: 3.取消ads KEYWORD拦截规则4.日常维护更新广告拦截规则
+Version3.4: 5.更新时间:2016-8-06 15:12:14
 Version3.3: 1.添加"百度云"应用广告拦截2.IPCIDR添加"no-resolve"参数
 Version3.3: 3.重新/排列/整理/美化/规则4.GFWList已与Proxy规则合并
 Version3.3: 5.更新时间:2016-7-24 09:46
