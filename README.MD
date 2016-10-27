@@ -19,7 +19,7 @@
 #### 第二步:「Shadowrocket」>「配置」>「本地文件」>「规则」>「使用配置」
 
 ## 更新记录
-#### 稍后完善
+#### 稍后完善 [更新记录](UPdate.txt) 
 
 ## License
 - 本项目的所有代码除另有说明外,均按照 [MIT License](LICENSE) 发布。
@@ -29,4 +29,3 @@
 - 请在遵守当地相关法律法规的前提下使用本项目。
 
 ![img-source-from-https://github.com/docker/dockercraft](https://github.com/docker/dockercraft/raw/master/docs/img/contribute.png?raw=true)
-
