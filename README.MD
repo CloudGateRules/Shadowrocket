@@ -3,11 +3,11 @@
 [doodle]: http://www.google.com/logos/doodles/2016/claude-shannons-100th-birthday-5731852344098816.2-hp2x.gif "克劳德·香农诞辰 100 周年"
 [doodle-story]: https://www.google.co.jp/search?q=Google
 
-**注意: 使用本项目之前，请先阅读此 [README](README.md) 及下方的许可协议**
+**使用本项目之前，请先阅读此 [README](README.md) 及下方的许可协议**
 
 **注意: 本规则可能会收集一些广告数据,用于改善规则中存在的问题**
 
-**更新: CloudGate规则 [更新记录](UPdate.txt) 列表**
+**更新记录: CloudGate规则 [更新记录](UPdate.txt) 列表**
 
 ## 规则地址
 #### 主用线路: http://UPlus7.Win/Proxy/Shadowrocket.php
