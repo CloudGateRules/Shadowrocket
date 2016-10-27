@@ -12,7 +12,7 @@
 #### 备用线路: https://Config.daoapp.io/Proxy/Shadowrocket.php
 
 ## 更新规则
-#### 推荐使用 [URL] 方式更新规则文件
+#### 推荐使用「在线导入」方式更新规则文件
 
 ## 使用方法
 #### 「Shadowrocket」>「配置」>「+」>「主用线路/备用线路」>「下载」
