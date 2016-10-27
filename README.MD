@@ -8,8 +8,8 @@
 **注意: 本规则可能会收集一些广告数据,用于改善规则中存在的问题**
 
 ## 规则地址
-#### 主: http://UPlus7.Win/Proxy/Shadowrocket.php
-#### 备: https://Config.daoapp.io/Proxy/Shadowrocket.php
+#### 主用线路: http://UPlus7.Win/Proxy/Shadowrocket.php
+#### 备用线路: https://Config.daoapp.io/Proxy/Shadowrocket.php
 
 ## 更新规则
 #### 推荐使用 [URL] 方式更新规则文件
