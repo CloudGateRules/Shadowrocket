@@ -7,7 +7,7 @@
 
 **注意: 本规则可能会收集一些广告数据,用于改善规则中存在的问题**
 
-**更新记录: CloudGate [更新记录](UPdate.txt) 列表**
+**更新记录: CloudGate规则 [更新记录](UPdate.txt) 列表**
 
 ## 规则地址
 #### 主用线路: http://UPlus7.Win/Proxy/Shadowrocket.php
