@@ -19,7 +19,7 @@
 #### 第二步:「Shadowrocket」>「配置」>「本地文件」>「规则」>「使用配置」
 
 ## 更新记录
-#### 稍后完善 [更新记录](UPdate.txt) 
+#### [更新记录](UPdate.txt) 
 
 ## License
 - 本项目的所有代码除另有说明外,均按照 [MIT License](LICENSE) 发布。
