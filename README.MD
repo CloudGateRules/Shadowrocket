@@ -7,7 +7,7 @@
 
 **注意: 本规则可能会收集一些广告数据,用于改善规则中存在的问题**
 
-**更新记录: [更新记录](UPdate.txt) **
+**更新记录: 的 [更新记录](UPdate.txt) 的**
 
 ## 规则地址
 #### 主用线路: http://UPlus7.Win/Proxy/Shadowrocket.php
