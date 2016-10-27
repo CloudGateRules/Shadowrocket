@@ -7,6 +7,8 @@
 
 **注意: 本规则可能会收集一些广告数据,用于改善规则中存在的问题**
 
+**更新记录: [更新记录](UPdate.txt) **
+
 ## 规则地址
 #### 主用线路: http://UPlus7.Win/Proxy/Shadowrocket.php
 #### 备用线路: https://Config.daoapp.io/Proxy/Shadowrocket.php
@@ -17,9 +19,6 @@
 ## 使用方法
 #### 第一步:「Shadowrocket」>「配置」>「+」>「主用线路/备用线路」>「下载」
 #### 第二步:「Shadowrocket」>「配置」>「本地文件」>「规则」>「使用配置」
-
-## 更新记录
-#### [更新记录](UPdate.txt) 
 
 ## License
 - 本项目的所有代码除另有说明外,均按照 [MIT License](LICENSE) 发布。
