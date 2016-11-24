@@ -1,5 +1,8 @@
 <?php
 
+# 引用Controller控制器模块
+require '../Controller/Controller.php';
+
 # 关闭所有 Notice | Warning 级别的错误
 error_reporting(E_ALL^E_NOTICE^E_WARNING);
 
@@ -8,81 +11,15 @@ header("cache-control:no-cache,must-revalidate");
 header("Content-Type:text/html;charset=UTF-8");
 header('Content-Disposition: attachment; filename='.'Shadowrocket.Conf');
 
-# 默认模块API托管在Github[GithubUserContent] | 模块数组 | 请求模块禁止缓存
-$ModuleAPI    = "https://raw.githubusercontent.com/BurpSuite/CloudGate-RuleList/master/Rule/";
-$ModuleArray  = array("Advanced","Basic","DIRECT","Default","HostsFix","IPCIDR","KEYWORD","REJECT","Rewrite","YouTube","Other","USERAGENT");
-$Cache        = '?Cache='.sha1(mt_rand()).'&TimeStamp='.time();
-
-# 接收GET请求参数
-$Logo  = $_GET['Logo'];
-$Rule  = $_GET['Rule'];
-$Apple = $_GET['Apple'];
-$DNS1  = $_GET['DNS1'];
-$DNS2  = $_GET['DNS2'];
-
-# 检测GET接收参数
+# 检测GET参数
 if(empty($Logo)){$Logo="true";}else{$Logo=$Logo;}
 if(empty($Rule)){$Rule="false";}elseif($Rule=="true"){$Rule="true";}else{$Rule="false";}
-if(empty($Apple)){$Apple="false";$GETApple="DIRECT";}elseif($Apple=="true"){$GETApple="Proxy";}else{$Apple="false";$GETApple="DIRECT";}
+if(empty($Apple)){$Apple="false";}elseif($Apple=="true"){$Apple="true";}else{$Apple="false";}
 if(empty($DNS1)){$DNS1="8.8.8.8";}else{$DNS1=$DNS1;}
 if(empty($DNS2)){$DNS2="8.8.4.4";}else{$DNS2=$DNS2;}
 
-# 参数组合一起就是完整的模块地址
-$AdvancedFile  = $ModuleAPI.$ModuleArray[0].$Cache;
-$BasicFile     = $ModuleAPI.$ModuleArray[1].$Cache;
-$DIRECTFile    = $ModuleAPI.$ModuleArray[2].$Cache;
-$DefaultFile   = $ModuleAPI.$ModuleArray[3].$Cache;
-$HostsFixFile  = $ModuleAPI.$ModuleArray[4].$Cache;
-$IPCIDRFile    = $ModuleAPI.$ModuleArray[5].$Cache;
-$KEYWORDFile   = $ModuleAPI.$ModuleArray[6].$Cache;
-$REJECTFile    = $ModuleAPI.$ModuleArray[7].$Cache;
-$RewriteFile   = $ModuleAPI.$ModuleArray[8].$Cache;
-$YouTubeFile   = $ModuleAPI.$ModuleArray[9].$Cache;
-$OtherFile     = $ModuleAPI.$ModuleArray[10].$Cache;
-$USERAGENTFile = $ModuleAPI.$ModuleArray[11].$Cache;
-
-# 现在暂时还是单线程,后续可能会改成循环请求或多线程请求
-$DefaultModuleCURL = curl_init();
-curl_setopt($DefaultModuleCURL,CURLOPT_URL,"$DefaultFile");
-curl_setopt($DefaultModuleCURL,CURLOPT_RETURNTRANSFER,true);
-$DefaultCURLF      = curl_exec($DefaultModuleCURL);
-curl_close($DefaultModuleCURL);
-$AdvancedModuleCURL   = curl_init();
-if($Rule=="true"){curl_setopt($AdvancedModuleCURL,CURLOPT_URL,"$BasicFile");}
-elseif($Rule=="false"){curl_setopt($AdvancedModuleCURL,CURLOPT_URL,"$AdvancedFile");}
-curl_setopt($AdvancedModuleCURL,CURLOPT_RETURNTRANSFER,true);
-$AdvancedCURLF        = curl_exec($AdvancedModuleCURL);
-curl_close($AdvancedModuleCURL);
-$DIRECTModuleCURL  = curl_init();
-curl_setopt($DIRECTModuleCURL,CURLOPT_URL,"$DIRECTFile");
-curl_setopt($DIRECTModuleCURL,CURLOPT_RETURNTRANSFER,true);
-$DIRECTCURLF       = curl_exec($DIRECTModuleCURL);
-curl_close($DIRECTModuleCURL);
-$REJECTModuleCURL  = curl_init();
-curl_setopt($REJECTModuleCURL,CURLOPT_URL,"$REJECTFile");
-curl_setopt($REJECTModuleCURL,CURLOPT_RETURNTRANSFER,true);
-$REJECTCURLF       = curl_exec($REJECTModuleCURL);
-curl_close($REJECTModuleCURL);
-$KEYWORDModuleCURL = curl_init();
-curl_setopt($KEYWORDModuleCURL,CURLOPT_URL,"$KEYWORDFile");
-curl_setopt($KEYWORDModuleCURL,CURLOPT_RETURNTRANSFER,true);
-$KEYWORDCURLF      = curl_exec($KEYWORDModuleCURL);
-curl_close($KEYWORDModuleCURL);
-$IPCIDRModuleCURL  = curl_init();
-curl_setopt($IPCIDRModuleCURL,CURLOPT_URL,"$IPCIDRFile");
-curl_setopt($IPCIDRModuleCURL,CURLOPT_RETURNTRANSFER,true);
-$IPCIDRCURLF       = curl_exec($IPCIDRModuleCURL);
-curl_close($IPCIDRModuleCURL);
-$RewriteModuleCURL = curl_init();
-curl_setopt($RewriteModuleCURL,CURLOPT_URL,"$RewriteFile");
-curl_setopt($RewriteModuleCURL,CURLOPT_RETURNTRANSFER,true);
-$RewriteCURLF      = curl_exec($RewriteModuleCURL);
-curl_close($RewriteModuleCURL);
-$OtherModuleCURL    = curl_init();
-curl_setopt($OtherModuleCURL,CURLOPT_URL,"$OtherFile");
-curl_setopt($OtherModuleCURL,CURLOPT_RETURNTRANSFER,true);
-$OtherCURLF         = curl_exec($OtherModuleCURL);
-curl_close($OtherModuleCURL);
+# 判断GET参数
+if($Rule=="true"){$AdvancedCURLF=$BasicCURLF;}elseif($Rule=="false"){$AdvancedCURLF=$AdvancedCURLF;}
 
 # 正则表达式替换规则格式
 if($Apple=="true"){$Default  = preg_replace('/([^])([ \s]+)/','$1,Proxy$2',$DefaultCURLF."\r\n");}
@@ -121,3 +58,5 @@ echo "# IP-CIDR\r\n".$IPCIDR;
 echo "# Other\r\n".$Other;
 echo "[URL Rewrite]\r\n";
 echo "# Rewrite\r\n".$Rewrite;
+
+?>
