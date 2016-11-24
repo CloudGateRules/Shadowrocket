@@ -1,8 +1,5 @@
 <?php
 
-# 引用Controller控制器模块
-require '../Controller/Controller.php';
-
 # 关闭所有 Notice | Warning 级别的错误
 error_reporting(E_ALL^E_NOTICE^E_WARNING);
 
@@ -10,6 +7,9 @@ error_reporting(E_ALL^E_NOTICE^E_WARNING);
 header("cache-control:no-cache,must-revalidate");
 header("Content-Type:text/html;charset=UTF-8");
 header('Content-Disposition: attachment; filename='.'Shadowrocket.Conf');
+
+# 引用Controller控制器模块
+require '../Controller/Controller.php';
 
 # 检测GET参数
 if(empty($Logo)){$Logo="true";}else{$Logo=$Logo;}

@@ -1,8 +1,5 @@
 <?php
 
-# 引用Controller控制器模块
-require '../Controller/Controller.php';
-
 # 关闭所有 Notice | Warning 级别的错误
 error_reporting(E_ALL^E_NOTICE^E_WARNING);
 
@@ -10,6 +7,19 @@ error_reporting(E_ALL^E_NOTICE^E_WARNING);
 header("cache-control:no-cache,must-revalidate");
 header("Content-Type:text/html;charset=UTF-8");
 header('Content-Disposition: attachment; filename='.'Shadowrocket.Conf');
+
+# 设置开启哪些模块 | 必须放置在最前面
+$DefaultModule  = "true";
+$AdvancedModule = "true";
+$DIRECTModule   = "true";
+$REJECTModule   = "true";
+$KEYWORDModule  = "true";
+$IPCIDRModule   = "true";
+$OtherModule    = "true";
+$RewriteModule  = "true";
+
+# 引用Controller控制器模块
+require '../Controller/Controller.php';
 
 # Shadowrocket[General]规则模板
 echo "[General]\r\n";

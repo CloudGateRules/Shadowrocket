@@ -1,8 +1,5 @@
 <?php
 
-# 引用Controller控制器模块
-require '../Controller/Controller.php';
-
 # 关闭所有 Notice | Warning 级别的错误
 error_reporting(E_ALL^E_NOTICE^E_WARNING);
 
@@ -10,6 +7,19 @@ error_reporting(E_ALL^E_NOTICE^E_WARNING);
 header("cache-control:no-cache,must-revalidate");
 header("Content-Type:text/html;charset=UTF-8");
 header('Content-Disposition: attachment; filename='.'Shadowrocket.Conf');
+
+# 设置开启哪些模块
+$DefaultModule  = "true";
+$AdvancedModule = "true";
+$DIRECTModule   = "true";
+$REJECTModule   = "true";
+$KEYWORDModule  = "true";
+$IPCIDRModule   = "true";
+$OtherModule    = "true";
+$RewriteModule  = "true";
+
+# 引用Controller控制器模块
+require '../Controller/Controller.php';
 
 # 设定参数默认值
 $ConfigDefaultFile = $Shadowrocket_Config_Module;
@@ -28,7 +38,7 @@ curl_setopt($ConfigModuleCURL,CURLOPT_RETURNTRANSFER,true);
 $ConfigCURLF        = curl_exec($ConfigModuleCURL);
 curl_close($ConfigModuleCURL);
 
-# Surge[General]规则模板
+# Shadowrocket[General]规则模板
 echo "$ConfigCURLF\r\n";
 
 # 最后模块内容输出
