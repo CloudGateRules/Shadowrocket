@@ -10,7 +10,7 @@
 **更新记录: CloudGate规则 [更新记录](UPdate.txt) 列表**
 
 ## 规则地址
-#### 主用线路: http://UPlus7.Win/Proxy/Shadowrocket.php
+#### 主用线路: http://BurpSuite.Site/Rule/General/Shadowrocket.php
 #### 备用线路: https://Config.daoapp.io/Proxy/Shadowrocket.php
 
 ## 更新规则

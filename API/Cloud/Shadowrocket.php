@@ -1,5 +1,8 @@
 <?php
 
+# 关闭所有 Notice | Warning 级别的错误
+error_reporting(E_ALL^E_NOTICE^E_WARNING);
+
 # 页面禁止缓存 | UTF-8编码 | 触发下载
 header("cache-control:no-cache,must-revalidate");
 header("Content-Type:text/html;charset=UTF-8");

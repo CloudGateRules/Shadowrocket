@@ -1,31 +1,123 @@
-﻿<?php
+<?php
 
+# 关闭所有 Notice | Warning 级别的错误
+error_reporting(E_ALL^E_NOTICE^E_WARNING);
+
+# 页面禁止缓存 | UTF-8编码 | 触发下载
 header("cache-control:no-cache,must-revalidate");
 header("Content-Type:text/html;charset=UTF-8");
+header('Content-Disposition: attachment; filename='.'Shadowrocket.Conf');
 
-if( isset($_GET['Logo']) ){$Logo = $_GET['Logo'];  }else {$Logo = "true";}
-//if( isset($_GET['AutoGroup']) ){$AutoGroup = $_GET['AutoGroup'];}else {$Rule = "false";}
-//if( $AutoGroup=="true" ){$AutoGroup="true";}elseif($AutoGroup=="false"){$AutoGroup="false";}else {$AutoGroup="false";}
-if( isset($_GET['Rule']) ){$Rule = $_GET['Rule'];}else {$Rule = "false";}
-if( $Rule=="true" ){$Rule="true";}elseif ($Rule=="false"){$Rule="false";}else {$Apple="false";}
-if( isset($_GET['Apple']) ){$Apple = $_GET['Apple'];}else {$Apple = "false";}
-if( $Apple=="true" ){$GETApple="Proxy";}elseif ($Apple=="false"){$GETApple="DIRECT";}else {$GETApple="DIRECT";}
-//if( isset($_GET['IPV6']) ){$IPV6 = $_GET['IPV6'];}else {$IPV6 = "false";}
-//if( $IPV6=="true" ){$IPV6="true";}elseif($IPV6=="false"){$IPV6="false";}else {$IPV6="false";}
-//if( isset($_GET['Group']) ){$Group = $_GET['Group'];}else {$Group = "1";}
-if( isset($_GET['DNS1']) ){$DNS1 = $_GET['DNS1'];}else {$DNS1 = "8.8.8.8";}
-if( isset($_GET['DNS2']) ){$DNS2 = $_GET['DNS2'];}else {$DNS2 = "8.8.4.4";}
-//if( isset($_GET['Config1']) ){$Config1 = $_GET['Config1'];}else {$Config1 = "127.0.0.1,80,aes-256-cfb,Password";}
-//if( isset($_GET['Config2']) ){$Config2 = $_GET['Config2'];}else {$Config2 = "127.0.0.1,80,aes-256-cfb,Password";}
-//if( isset($_GET['Config3']) ){$Config3 = $_GET['Config3'];}else {$Config3 = "127.0.0.1,80,aes-256-cfb,Password";}
-//if( isset($_GET['Config4']) ){$Config4 = $_GET['Config4'];}else {$Config4 = "127.0.0.1,80,aes-256-cfb,Password";}
-//if( isset($_GET['Config5']) ){$Config5 = $_GET['Config5'];}else {$Config5 = "127.0.0.1,80,aes-256-cfb,Password";}
-//if( isset($_GET['Flag1']) ){$Flag1 = $_GET['Flag1'];  }else {$Flag1 = "NONE1";}
-//if( isset($_GET['Flag2']) ){$Flag2 = $_GET['Flag2'];  }else {$Flag2 = "NONE2";}
-//if( isset($_GET['Flag3']) ){$Flag3 = $_GET['Flag3'];  }else {$Flag3 = "NONE3";}
-//if( isset($_GET['Flag4']) ){$Flag4 = $_GET['Flag4'];  }else {$Flag4 = "NONE4";}
-//if( isset($_GET['Flag5']) ){$Flag5 = $_GET['Flag5'];  }else {$Flag5 = "NONE5";}
+# 默认模块API托管在Github[GithubUserContent] | 模块数组 | 请求模块禁止缓存
+$ModuleAPI    = "https://raw.githubusercontent.com/BurpSuite/CloudGate-RuleList/master/Rule/";
+$ModuleArray  = array("Advanced","Basic","DIRECT","Default","HostsFix","IPCIDR","KEYWORD","REJECT","Rewrite","YouTube","Other","USERAGENT");
+$Cache        = '?Cache='.sha1(mt_rand()).'&TimeStamp='.time();
 
-header("Location:".'http://'.$_SERVER['SERVER_NAME']."/Rule/Advanced/Shadowrocket.php?&Rule=$Rule&Apple=$Apple&Logo=$Logo&DNS1=$DNS1&DNS2=$DNS2");
+# 接收GET请求参数
+$Logo  = $_GET['Logo'];
+$Rule  = $_GET['Rule'];
+$Apple = $_GET['Apple'];
+$DNS1  = $_GET['DNS1'];
+$DNS2  = $_GET['DNS2'];
 
-?>
+# 检测GET接收参数
+if(empty($Logo)){$Logo="true";}else{$Logo=$Logo;}
+if(empty($Rule)){$Rule="false";}elseif($Rule=="true"){$Rule="true";}else{$Rule="false";}
+if(empty($Apple)){$Apple="false";$GETApple="DIRECT";}elseif($Apple=="true"){$GETApple="Proxy";}else{$Apple="false";$GETApple="DIRECT";}
+if(empty($DNS1)){$DNS1="8.8.8.8";}else{$DNS1=$DNS1;}
+if(empty($DNS2)){$DNS2="8.8.4.4";}else{$DNS2=$DNS2;}
+
+# 参数组合一起就是完整的模块地址
+$AdvancedFile  = $ModuleAPI.$ModuleArray[0].$Cache;
+$BasicFile     = $ModuleAPI.$ModuleArray[1].$Cache;
+$DIRECTFile    = $ModuleAPI.$ModuleArray[2].$Cache;
+$DefaultFile   = $ModuleAPI.$ModuleArray[3].$Cache;
+$HostsFixFile  = $ModuleAPI.$ModuleArray[4].$Cache;
+$IPCIDRFile    = $ModuleAPI.$ModuleArray[5].$Cache;
+$KEYWORDFile   = $ModuleAPI.$ModuleArray[6].$Cache;
+$REJECTFile    = $ModuleAPI.$ModuleArray[7].$Cache;
+$RewriteFile   = $ModuleAPI.$ModuleArray[8].$Cache;
+$YouTubeFile   = $ModuleAPI.$ModuleArray[9].$Cache;
+$OtherFile     = $ModuleAPI.$ModuleArray[10].$Cache;
+$USERAGENTFile = $ModuleAPI.$ModuleArray[11].$Cache;
+
+# 现在暂时还是单线程,后续可能会改成循环请求或多线程请求
+$DefaultModuleCURL = curl_init();
+curl_setopt($DefaultModuleCURL,CURLOPT_URL,"$DefaultFile");
+curl_setopt($DefaultModuleCURL,CURLOPT_RETURNTRANSFER,true);
+$DefaultCURLF      = curl_exec($DefaultModuleCURL);
+curl_close($DefaultModuleCURL);
+$AdvancedModuleCURL   = curl_init();
+if($Rule=="true"){curl_setopt($AdvancedModuleCURL,CURLOPT_URL,"$BasicFile");}
+elseif($Rule=="false"){curl_setopt($AdvancedModuleCURL,CURLOPT_URL,"$AdvancedFile");}
+curl_setopt($AdvancedModuleCURL,CURLOPT_RETURNTRANSFER,true);
+$AdvancedCURLF        = curl_exec($AdvancedModuleCURL);
+curl_close($AdvancedModuleCURL);
+$DIRECTModuleCURL  = curl_init();
+curl_setopt($DIRECTModuleCURL,CURLOPT_URL,"$DIRECTFile");
+curl_setopt($DIRECTModuleCURL,CURLOPT_RETURNTRANSFER,true);
+$DIRECTCURLF       = curl_exec($DIRECTModuleCURL);
+curl_close($DIRECTModuleCURL);
+$REJECTModuleCURL  = curl_init();
+curl_setopt($REJECTModuleCURL,CURLOPT_URL,"$REJECTFile");
+curl_setopt($REJECTModuleCURL,CURLOPT_RETURNTRANSFER,true);
+$REJECTCURLF       = curl_exec($REJECTModuleCURL);
+curl_close($REJECTModuleCURL);
+$KEYWORDModuleCURL = curl_init();
+curl_setopt($KEYWORDModuleCURL,CURLOPT_URL,"$KEYWORDFile");
+curl_setopt($KEYWORDModuleCURL,CURLOPT_RETURNTRANSFER,true);
+$KEYWORDCURLF      = curl_exec($KEYWORDModuleCURL);
+curl_close($KEYWORDModuleCURL);
+$IPCIDRModuleCURL  = curl_init();
+curl_setopt($IPCIDRModuleCURL,CURLOPT_URL,"$IPCIDRFile");
+curl_setopt($IPCIDRModuleCURL,CURLOPT_RETURNTRANSFER,true);
+$IPCIDRCURLF       = curl_exec($IPCIDRModuleCURL);
+curl_close($IPCIDRModuleCURL);
+$RewriteModuleCURL = curl_init();
+curl_setopt($RewriteModuleCURL,CURLOPT_URL,"$RewriteFile");
+curl_setopt($RewriteModuleCURL,CURLOPT_RETURNTRANSFER,true);
+$RewriteCURLF      = curl_exec($RewriteModuleCURL);
+curl_close($RewriteModuleCURL);
+$OtherModuleCURL    = curl_init();
+curl_setopt($OtherModuleCURL,CURLOPT_URL,"$OtherFile");
+curl_setopt($OtherModuleCURL,CURLOPT_RETURNTRANSFER,true);
+$OtherCURLF         = curl_exec($OtherModuleCURL);
+curl_close($OtherModuleCURL);
+
+# 正则表达式替换规则格式
+if($Apple=="true"){$Default  = preg_replace('/([^])([ \s]+)/','$1,Proxy$2',$DefaultCURLF."\r\n");}
+elseif($Apple=="false"){$Default  = preg_replace('/([^])([ \s]+)/','$1,DIRECT$2',$DefaultCURLF."\r\n");}
+$Advanced = preg_replace('/([^])([ \s]+)/','$1,Proxy$2',$AdvancedCURLF."\r\n");
+$DIRECT   = preg_replace('/([^])([ \s]+)/','$1,DIRECT$2',$DIRECTCURLF."\r\n");
+$REJECT   = preg_replace('/([^])([ \s]+)/','$1,REJECT$2',$REJECTCURLF."\r\n");
+$KEYWORD  = preg_replace('/([^])([ \s]+)/','DOMAIN-KEYWORD,$1$2,force-remote-dns',$KEYWORDCURLF."\r\n");
+$IPCIDR   = preg_replace('/([^])([ \s]+)/','IP-CIDR,$1$2,no-resolve',$IPCIDRCURLF."\r\n");
+$Rewrite  = preg_replace('/([^])([ \s]+)/','$1$2',$RewriteCURLF."\r\n");
+$Other    = preg_replace('/([^])([ \s]+)/','$1$2',$OtherCURLF."\r\n");
+
+# Shadowrocket[General]规则模板
+echo "[General]\r\n";
+echo "bypass-system = true\r\n";
+echo "loglevel = notify\r\n";
+echo "skip-proxy = 10.0.0.0/8,17.0.0.0/8,172.16.0.0/12,192.168.0.0/16,localhost,*.local,::ffff:0:0:0:0/1,::ffff:128:0:0:0/1,*.crashlytics.com\r\n";
+if($Logo=="true"){echo "bypass-tun = 10.0.0.0/8,127.0.0.0/24,172.0.0.0/8,192.168.0.0/16\r\n";}
+elseif($Logo=="false"){echo "bypass-tun = 0.0.0.0/8,10.0.0.0/8,127.0.0.0/24,172.0.0.0/8,192.168.0.0/16\r\n";}
+if($DNS1&&$DNS2){echo "dns-server = $DNS1,$DNS2\r\n";}
+elseif($DNS1!=NULL&&$DNS2!=NULL){echo "dns-server = 8.8.8.8,8.8.4.4\r\n";}
+else{echo "dns-server = 8.8.8.8,8.8.4.4\r\n";}
+echo "#  \r\n";
+echo "# Shadowrocket Config File [CloudGate]\r\n";
+echo "# Download Time: " . date("Y-m-d H:i:s") . "\r\n";
+echo "#  \r\n";
+
+# 最后模块内容输出
+echo "[Rule]\r\n";
+echo "# Default\r\n".$Default;
+echo "# PROXY\r\n".$Advanced;
+echo "# DIRECT\r\n".$DIRECT;
+echo "# REJECT\r\n".$REJECT;
+echo "# KEYWORD\r\n".$KEYWORD;
+echo "# IP-CIDR\r\n".$IPCIDR;
+echo "# Other\r\n".$Other;
+echo "[URL Rewrite]\r\n";
+echo "# Rewrite\r\n".$Rewrite;
