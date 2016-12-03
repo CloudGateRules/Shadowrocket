@@ -3,6 +3,10 @@
 # 关闭所有 Notice | Warning 级别的错误
 error_reporting(E_ALL^E_NOTICE^E_WARNING);
 
+# 页面禁止缓存 | UTF-8编码
+header("cache-control:no-cache,must-revalidate");
+header("Content-Type:text/html;charset=UTF-8");
+
 # 默认模块API托管在Github[GithubUserContent] | 模块数组 | 请求模块禁止缓存
 $ModuleAPI    = "https://raw.githubusercontent.com/BurpSuite/CloudGate-RuleList/master/Rule/";
 $HostsAPI     = "https://raw.githubusercontent.com/racaljk/hosts/master/hosts";
@@ -11,6 +15,8 @@ $Cache        = '?Cache='.sha1(mt_rand()).'&TimeStamp='.time();
 
 # 接收GET请求参数
 $Fix       = $_GET['Fix'];
+$Tolerance = $_GET['Tolerance'];
+$Interval  = $_GET['Interval'];
 $Config    = $_GET['Config'];
 $Logo      = $_GET['Logo'];
 $AutoGroup = $_GET['AutoGroup'];
@@ -36,6 +42,7 @@ $Module       = "https://raw.githubusercontent.com/BurpSuite/CloudGate-RuleList/
 $AutoGroupURL = "http://www.gstatic.com/generate_204";
 $HostsFixIP   = "202.171.253.103";
 $YouTubeIP    = "219.76.4.3";
+$HTTPSURL     = "true";
 
 # 默认云端模块地址
 $Potatso_Config_Module      = "https://raw.githubusercontent.com/BurpSuite/CloudGate-RuleList/master/General/Potatso_General.cfg";
@@ -58,70 +65,70 @@ $OtherFile     = $ModuleAPI.$ModuleArray[10].$Cache;
 $USERAGENTFile = $ModuleAPI.$ModuleArray[11].$Cache;
 
 # 现在暂时还是单线程,后续可能会改成循环请求或多线程请求
-if($AdvancedModule=="true"){$AdvancedModuleCURL  = curl_init();
+if($AdvancedModule =="true"){$AdvancedModuleCURL  = curl_init();
 curl_setopt($AdvancedModuleCURL,CURLOPT_URL,"$AdvancedFile");
 curl_setopt($AdvancedModuleCURL,CURLOPT_RETURNTRANSFER,true);
-$AdvancedCURLF       = curl_exec($AdvancedModuleCURL);
+$AdvancedCURLF  = curl_exec($AdvancedModuleCURL);
 curl_close($AdvancedModuleCURL);}
-if($BasicModule=="true"){$BasicModuleCURL     = curl_init();
+if($BasicModule    =="true"){$BasicModuleCURL     = curl_init();
 curl_setopt($BasicModuleCURL,CURLOPT_URL,"$BasicFile");
 curl_setopt($BasicModuleCURL,CURLOPT_RETURNTRANSFER,true);
-$BasicCURLF          = curl_exec($BasicModuleCURL);
+$BasicCURLF     = curl_exec($BasicModuleCURL);
 curl_close($BasicModuleCURL);}
-if($DIRECTModule=="true"){$DIRECTModuleCURL    = curl_init();
+if($DIRECTModule   =="true"){$DIRECTModuleCURL    = curl_init();
 curl_setopt($DIRECTModuleCURL,CURLOPT_URL,"$DIRECTFile");
 curl_setopt($DIRECTModuleCURL,CURLOPT_RETURNTRANSFER,true);
-$DIRECTCURLF         = curl_exec($DIRECTModuleCURL);
+$DIRECTCURLF    = curl_exec($DIRECTModuleCURL);
 curl_close($DIRECTModuleCURL);}
-if($DefaultModule=="true"){$DefaultModuleCURL   = curl_init();
+if($DefaultModule  =="true"){$DefaultModuleCURL   = curl_init();
 curl_setopt($DefaultModuleCURL,CURLOPT_URL,"$DefaultFile");
 curl_setopt($DefaultModuleCURL,CURLOPT_RETURNTRANSFER,true);
-$DefaultCURLF        = curl_exec($DefaultModuleCURL);
+$DefaultCURLF   = curl_exec($DefaultModuleCURL);
 curl_close($DefaultModuleCURL);}
-if($IPCIDRModule=="true"){$IPCIDRModuleCURL    = curl_init();
+if($IPCIDRModule   =="true"){$IPCIDRModuleCURL    = curl_init();
 curl_setopt($IPCIDRModuleCURL,CURLOPT_URL,"$IPCIDRFile");
 curl_setopt($IPCIDRModuleCURL,CURLOPT_RETURNTRANSFER,true);
-$IPCIDRCURLF         = curl_exec($IPCIDRModuleCURL);
+$IPCIDRCURLF    = curl_exec($IPCIDRModuleCURL);
 curl_close($IPCIDRModuleCURL);}
-if($KEYWORDModule=="true"){$KEYWORDModuleCURL   = curl_init();
+if($KEYWORDModule  =="true"){$KEYWORDModuleCURL   = curl_init();
 curl_setopt($KEYWORDModuleCURL,CURLOPT_URL,"$KEYWORDFile");
 curl_setopt($KEYWORDModuleCURL,CURLOPT_RETURNTRANSFER,true);
-$KEYWORDCURLF        = curl_exec($KEYWORDModuleCURL);
+$KEYWORDCURLF   = curl_exec($KEYWORDModuleCURL);
 curl_close($KEYWORDModuleCURL);}
-if($REJECTModule=="true"){$REJECTModuleCURL    = curl_init();
+if($REJECTModule   =="true"){$REJECTModuleCURL    = curl_init();
 curl_setopt($REJECTModuleCURL,CURLOPT_URL,"$REJECTFile");
 curl_setopt($REJECTModuleCURL,CURLOPT_RETURNTRANSFER,true);
-$REJECTCURLF         = curl_exec($REJECTModuleCURL);
+$REJECTCURLF    = curl_exec($REJECTModuleCURL);
 curl_close($REJECTModuleCURL);}
-if($RewriteModule=="true"){$RewriteModuleCURL   = curl_init();
+if($RewriteModule  =="true"){$RewriteModuleCURL   = curl_init();
 curl_setopt($RewriteModuleCURL,CURLOPT_URL,"$RewriteFile");
 curl_setopt($RewriteModuleCURL,CURLOPT_RETURNTRANSFER,true);
-$RewriteCURLF        = curl_exec($RewriteModuleCURL);
+$RewriteCURLF   = curl_exec($RewriteModuleCURL);
 curl_close($RewriteModuleCURL);}
-if($YouTubeModule=="true"){$YouTubeModuleCURL   = curl_init();
+if($YouTubeModule  =="true"){$YouTubeModuleCURL   = curl_init();
 curl_setopt($YouTubeModuleCURL,CURLOPT_URL,"$YouTubeFile");
 curl_setopt($YouTubeModuleCURL,CURLOPT_RETURNTRANSFER,true);
-$YouTubeCURLF        = curl_exec($YouTubeModuleCURL);
+$YouTubeCURLF   = curl_exec($YouTubeModuleCURL);
 curl_close($YouTubeModuleCURL);}
-if($OtherModule=="true"){$OtherModuleCURL     = curl_init();
+if($OtherModule    =="true"){$OtherModuleCURL     = curl_init();
 curl_setopt($OtherModuleCURL,CURLOPT_URL,"$OtherFile");
 curl_setopt($OtherModuleCURL,CURLOPT_RETURNTRANSFER,true);
-$OtherCURLF          = curl_exec($OtherModuleCURL);
+$OtherCURLF     = curl_exec($OtherModuleCURL);
 curl_close($OtherModuleCURL);}
 if($USERAGENTModule=="true"){$USERAGENTModuleCURL = curl_init();
 curl_setopt($USERAGENTModuleCURL,CURLOPT_URL,"$USERAGENTFile");
 curl_setopt($USERAGENTModuleCURL,CURLOPT_RETURNTRANSFER,true);
-$USERAGENTCURLF      = curl_exec($USERAGENTModuleCURL);
+$USERAGENTCURLF = curl_exec($USERAGENTModuleCURL);
 curl_close($USERAGENTModuleCURL);}
-if($HostsModule=="true"){$HostsModuleCURL = curl_init();
+if($HostsModule    =="true"){$HostsModuleCURL     = curl_init();
 curl_setopt($HostsModuleCURL,CURLOPT_URL,"$HostsAPI");
 curl_setopt($HostsModuleCURL,CURLOPT_RETURNTRANSFER,true);
-$HostsCURLF      = curl_exec($HostsModuleCURL);
+$HostsCURLF     = curl_exec($HostsModuleCURL);
 curl_close($HostsModuleCURL);}
-if($HostsFixModule=="true"){$HostsFixModuleCURL = curl_init();
+if($HostsFixModule =="true"){$HostsFixModuleCURL  = curl_init();
 curl_setopt($HostsFixModuleCURL,CURLOPT_URL,"$HostsFixFile");
 curl_setopt($HostsFixModuleCURL,CURLOPT_RETURNTRANSFER,true);
-$HostsFixCURLF      = curl_exec($HostsFixModuleCURL);
+$HostsFixCURLF  = curl_exec($HostsFixModuleCURL);
 curl_close($HostsFixModuleCURL);}
 
 # 正则表达式替换规则格式
@@ -151,7 +158,7 @@ $Potatso_REJECT        = preg_replace('/([^])([ \s]+)/','  - $1,REJECT$2',$REJEC
 $Potatso_KEYWORD       = preg_replace('/([^])([ \s]+)/','  - DOMAIN-MATCH,$1$2',$KEYWORDCURLF."\r\n");
 $Potatso_IPCIDR        = preg_replace('/([^])([ \s]+)/','  - IP-CIDR,$1$2',$IPCIDRCURLF."\r\n");
 $Potatso_OtherF        = preg_replace('/([^])([ \s]+)/','  - $1$2',$OtherCURLF."\r\n");
-$Potatso_Other         = preg_replace('/  - FINAL,Proxy/','',$OtherF."\r\n");
+$Potatso_Other         = preg_replace('/  - FINAL,Proxy/','',$Potatso_OtherF."\r\n");
 $ABIGT_Default         = preg_replace('/([^])([ \s]+)/','$1,DIRECT$2',$DefaultCURLF."\r\n");
 $ABIGT_Advanced        = preg_replace('/([^])([ \s]+)/','$1,Proxy$2',$AdvancedCURLF."\r\n");
 $ABIGT_Basic           = preg_replace('/([^])([ \s]+)/','$1,Proxy$2',$BasicCURLF."\r\n");
@@ -163,11 +170,13 @@ $ABIGT_Rewrite         = preg_replace('/([^])([ \s]+)/','$1$2',$RewriteCURLF."\r
 $ABIGT_Other           = preg_replace('/([^])([ \s]+)/','$1$2',$OtherCURLF."\r\n");
 $ABIGT_USERAGENT       = preg_replace('/([^])([ \s]+)/','$1$2',$USERAGENTCURLF."\r\n");
 $Wingy_Default         = str_replace ("DOMAIN-SUFFIX,","      - s,",$DefaultCURLF."\r\n");
-$Wingy_Advanced        = str_replace ("DOMAIN-SUFFIX,","      - s,",$AdvancedCURLF."\r\n");
-$Wingy_Basic           = str_replace ("DOMAIN-SUFFIX,","      - s,",$BasicCURLF."\r\n");
-$Wingy_REJECTT         = str_replace ("DOMAIN,","      - s,",$REJECTCURLF."\r\n");
+$Wingy_AdvancedF       = str_replace ("DOMAIN-SUFFIX,","      - s,",$AdvancedCURLF."\r\n");
+$Wingy_Advanced        = str_replace ("DOMAIN,","      - c,",$Wingy_AdvancedF."\r\n");
+$Wingy_BasicF          = str_replace ("DOMAIN-SUFFIX,","      - s,",$BasicCURLF."\r\n");
+$Wingy_Basic           = str_replace ("DOMAIN,","      - s,",$Wingy_BasicF."\r\n");
+$Wingy_REJECTT         = str_replace ("DOMAIN,","      - c,",$REJECTCURLF."\r\n");
 $Wingy_REJECT          = str_replace ("DOMAIN-SUFFIX,","      - s,",$Wingy_REJECTT."\r\n");
-$Wingy_DIRECTT         = str_replace ("DOMAIN,","      - s,",$DIRECTCURLF."\r\n");
+$Wingy_DIRECTT         = str_replace ("DOMAIN,","      - c,",$DIRECTCURLF."\r\n");
 $Wingy_DIRECT          = str_replace ("DOMAIN-SUFFIX,","      - s,",$Wingy_DIRECTT."\r\n");
 
 ?>
