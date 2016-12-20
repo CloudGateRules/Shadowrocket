@@ -20,7 +20,7 @@ require '../Controller/Controller.php';
 echo "[General]\r\n";
 echo "bypass-system = true\r\n";
 echo "loglevel = notify\r\n";
-echo "skip-proxy = 10.0.0.0/8,17.0.0.0/8,172.16.0.0/12,192.168.0.0/16,localhost,*.local,::ffff:0:0:0:0/1,::ffff:128:0:0:0/1,*.crashlytics.com\r\n";
+echo "skip-proxy = 10.0.0.0/8,17.0.0.0/8,172.16.0.0/12,192.168.0.0/16,localhost,*.local,*.crashlytics.com\r\n";
 echo "bypass-tun = 10.0.0.0/8,127.0.0.0/24,172.0.0.0/8,192.168.0.0/16\r\n";
 echo "dns-server = 8.8.8.8,8.8.4.4\r\n";
 echo "#  \r\n";

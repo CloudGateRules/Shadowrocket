@@ -42,7 +42,7 @@ $Other    = preg_replace('/([^])([ \s]+)/','$1$2',$OtherCURLF."\r\n");
 echo "[General]\r\n";
 echo "bypass-system = true\r\n";
 echo "loglevel = notify\r\n";
-echo "skip-proxy = 10.0.0.0/8,17.0.0.0/8,172.16.0.0/12,192.168.0.0/16,localhost,*.local,::ffff:0:0:0:0/1,::ffff:128:0:0:0/1,*.crashlytics.com\r\n";
+echo "skip-proxy = 10.0.0.0/8,17.0.0.0/8,172.16.0.0/12,192.168.0.0/16,localhost,*.local,*.crashlytics.com\r\n";
 if($Logo=="true"){echo "bypass-tun = 10.0.0.0/8,127.0.0.0/24,172.0.0.0/8,192.168.0.0/16\r\n";}
 elseif($Logo=="false"){echo "bypass-tun = 0.0.0.0/8,10.0.0.0/8,127.0.0.0/24,172.0.0.0/8,192.168.0.0/16\r\n";}
 if($DNS1&&$DNS2){echo "dns-server = $DNS1,$DNS2\r\n";}
