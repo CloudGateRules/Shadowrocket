@@ -21,7 +21,7 @@ function Cloud($Data,$DefaultModule,$Cache){
     !empty($Data)?$Cloud_IS_NULL="{$Data}{$Cache}":$Cloud_IS_NULL="{$DefaultModule}{$Cache}";
     preg_match('/^((http|https):\/\/)(.*)(.cfg)(.*)/',$Cloud_IS_NULL)?$Cloud_Preg_Match=$Cloud_IS_NULL:$Config_Preg_Match=$DefaultModule;
     $CloudSize = get_headers($Cloud_Preg_Match,true);
-    $CloudSize['Content-Length']>'100'&&$CloudSize['Content-Length']<'524288'&&$CURLSize['Accept-Ranges']==='bytes'?$ConfigFile=$Cloud_Preg_Match:$ConfigFile=$DefaultModule;
+    $CloudSize['Content-Length']>'100'&&$CloudSize['Content-Length']<'524288'&&$CloudSize['Accept-Ranges']==='bytes'?$ConfigFile=$Cloud_Preg_Match:$ConfigFile=$DefaultModule;
 }
 
 # CURL Request
