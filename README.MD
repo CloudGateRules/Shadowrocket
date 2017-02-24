@@ -10,8 +10,7 @@
 **更新记录: CloudGate规则 [更新记录](UPdate.txt) 列表**
 
 ## 规则地址
-#### 主用线路: https://async.be/Rule/Basic/Shadowrocket.php
-#### 备用线路: <del>https://burpsuite.site/Rule/General/Shadowrocket.php</del>
+#### 主用线路: https://async.be/Rule/Basic/Shadowrocket
 
 ## 更新规则
 #### 推荐使用「在线导入」方式更新规则文件

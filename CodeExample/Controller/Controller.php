@@ -24,7 +24,7 @@
  * SOFTWARE.
  *
  * License: MIT
- *    Time: 2017-02-01 02:03:00
+ *    Time: 2017-02-08 06:22:46
  *    Note: CloudGate Controller
  *  Author: Eval,BurpSuite
  */
@@ -40,8 +40,6 @@ $CryptoFile = 'https://raw.githubusercontent.com/BurpSuite/CloudGate-List/master
 $AutoURL    = 'http://www.gstatic.com/generate_204';
 $HostsFix   = '219.76.4.3';
 $Host       = 'https';
-$SKIP       = '10.0.0.0/8, 17.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16, localhost, *.local, *.crashlytics.com, *.epaylinks.cn';
-$Bypass     = '10.0.0.0/8, 127.0.0.0/24, 172.0.0.0/8, 192.168.0.0/16';
 $Cache      = '?Cache='.sha1(mt_rand()).'&TimeStamp='.time();
 
 # ClouGate模块地址
@@ -55,6 +53,7 @@ $Shadowrocket_Config_Module = 'https://raw.githubusercontent.com/BurpSuite/Cloud
 
 # CloudGate模块列表
 $RuleList = array(
+    'General'=>"{$ModuleAPI}General{$Cache}",
     'Advanced'=>"{$ModuleAPI}Advanced{$Cache}",
     'Basic'=>"{$ModuleAPI}Basic{$Cache}",
     'DIRECT'=>"{$ModuleAPI}DIRECT{$Cache}",
@@ -66,6 +65,7 @@ $RuleList = array(
     'Rewrite'=>"{$ModuleAPI}Rewrite{$Cache}",
     'YouTube'=>"{$ModuleAPI}YouTube{$Cache}",
     'Other'=>"{$ModuleAPI}Other{$Cache}",
+    'Host'=>"{$ModuleAPI}Host{$Cache}",
     'USERAGENT'=>"{$ModuleAPI}USERAGENT{$Cache}"
 );
 
