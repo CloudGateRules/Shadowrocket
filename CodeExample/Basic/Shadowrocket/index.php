@@ -16,7 +16,7 @@ require_once "../../Controller/Controller.php";
 
 # Cloud配置信息
 echo "[General]\r\n";
-echo CURL(true,$RuleList['General']).$CURLContent."\r\n";
+echo CURL($RuleList['General']).$CURLContent."\r\n";
 echo "dns-server = 8.8.8.8,8.8.4.4\r\n";
 echo "#  \r\n";
 echo "# Shadowrocket Config File [CloudGate]\r\n";
