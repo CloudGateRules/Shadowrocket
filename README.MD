@@ -1,32 +1,45 @@
-[![doodle]][doodle-story]
+CloudGate_Shadowrocket
+===========================
+CloudGate极简规则项目
 
-[doodle]: http://www.google.com/logos/doodles/2016/claude-shannons-100th-birthday-5731852344098816.2-hp2x.gif "克劳德·香农诞辰 100 周年"
-[doodle-story]: https://www.google.co.jp/search?q=Google
+使用说明
+------
+请勿直接使用此项目规则`Shadowrocket.Conf`文件,否则会导致某些功能无法使用!<br>
+请创建空白配置导入服务器配置后,请求网址下载最新规则文件,否则会无法验证`AUTHKEY`信息<br>
+[AuthKey](https://github.com/BurpSuite/Manual/blob/master/Token.MD)(`Authorization Key`)介绍,[AuthKey](https://github.com/BurpSuite/Manual/blob/master/Token.MD)如何运行,[AuthKey](https://github.com/BurpSuite/Manual/blob/master/Token.MD)作用!
 
-**使用本项目之前，请先阅读此 [README](README.md) 及下方的许可协议**
+内容介绍
+------
+严格筛选`Proxy`规则,确保绝对极简以及绝对安全,将资源占用降至最低!<br>
+近乎完美的`Interface`,助您无广告观看视频,`Developer`更可以突破会员限制!<br>
+添加大量广告拦截规则,抑制大部分广告信息,阻挡垃圾广告侵入!<br>
+完全免费可靠稳定及安全,没有任何多余信息!同时支持更强大的高级规则!<br>
 
-**注意: 本规则可能会收集一些广告数据,用于改善规则中存在的问题**
+下载信息
+------
+|规则名称|规则地址|
+|---|---|
+|Surge|`https://async.be/Rule/Basic/Surge`|
+|Shadowrocket|`https://async.be/Rule/Basic/Shadowrocket`|
+|Potatso2|`https://async.be/Rule/Basic/Potatso2`|
+|Potatso|`https://async.be/Rule/Basic/Potatso`|
+|Cross|`https://async.be/Rule/Basic/Cross`|
+|Wingy|`https://async.be/Rule/Basic/Wingy`|
+|A.BIG.T|`https://async.be/Rule/Basic/A.BIG.T`|
+|Hosts|`https://async.be/Rule/Basic/Hosts`|
 
-**更新记录: CloudGate规则 [更新记录](UPdate.txt) 列表**
+获取帮助
+------
+|联系方式|内容信息|
+|----|----|
+|Twitter|https://twitter.com/@OAuth4|
+|Github|https://github.com/BurpSuite|
+|Slack|https://burpsuite-team.slack.com|
+|Email|service@async.be|
 
-## 规则地址
-#### 主用线路: https://async.be/Rule/Basic/Shadowrocket
-
-## 更新规则
-#### 推荐使用「在线导入」方式更新规则文件
-
-## 使用方法
-#### 第一步:「Shadowrocket」>「配置」>「+」>「主用线路/备用线路」>「下载」
-#### 第二步:「Shadowrocket」>「配置」>「本地文件」>「规则」>「使用配置」
-
-## 联系方式
-[Twitter](https://twitter.com/OAuth4)
-
-## License
-- 本项目的所有代码除另有说明外,均按照 [MIT License](LICENSE) 发布。
-- 本项目的Shadowrocket.Conf，API，README.MD等资源基于[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
-这意味着你可以拷贝、并再发行本项目的内容，但是你将必须同样**提供原作者信息以及协议声明**。同时你也**不能将本项目用于商业用途**，
-按照我们狭义的理解（增加附属条款），凡是**任何盈利的活动皆属于商业用途**。
-- 请在遵守当地相关法律法规的前提下使用本项目。
+开源信息
+------
+[CloudGate Service](https://github.com/BurpSuite/Service)规则快速生成服务,通过[规则列表](https://github.com/BurpSuite/RuleList)生成实时更新的不同格式规则!<br>
+您需要按照[规则列表](https://github.com/BurpSuite/RuleList)格式进行编写规则列表信息,使用起来非常方便!
 
 ![img-source-from-https://github.com/docker/dockercraft](https://github.com/docker/dockercraft/raw/master/docs/img/contribute.png?raw=true)
