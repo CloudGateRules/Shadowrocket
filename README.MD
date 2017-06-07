@@ -23,7 +23,7 @@ CloudGate极简规则项目
 ------
 |规则名称|规则地址|
 |---|---|
-|Shadowrocket|`https://async.be/Rule/Basic/Shadowrocket`|
+|Surge|`https://async.be/Rule/Basic/Surge`|
 |Shadowrocket|`https://async.be/Rule/Basic/Shadowrocket`|
 |Potatso2|`https://async.be/Rule/Basic/Potatso2`|
 |Potatso|`https://async.be/Rule/Basic/Potatso`|
